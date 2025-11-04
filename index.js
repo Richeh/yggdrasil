@@ -36,7 +36,7 @@ app.get('/users/', async (req, res) => {
     res.json(users);
 });
 
-app.get('users/id', async  (req, res) => {
+app.get('/users/:id', async  (req, res) => {
     const user = await User.findByPk(req.params.id);
     res.json(user);
 });
@@ -46,7 +46,7 @@ app.post('/users', async (req, res) => {
     res.json(user);
 });
 
-app.put('/users/id', async(req, res) => {
+app.put('/users/:id', async(req, res) => {
     const user = await User.findByPk(req.params.id);
     if(user) {
         await user.update(req.body);
@@ -56,7 +56,7 @@ app.put('/users/id', async(req, res) => {
     }    
 });
 
-app.delete('/users/id', async(req, res) => {
+app.delete('/users/:id', async(req, res) => {
     const user = await User.findByPk(req.params.id);
     if(user) {
         await user.destroy();
