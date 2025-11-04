@@ -10,16 +10,17 @@ syncDatabase();
 const app=express();
 const port=process.env.PORT || 3000;
 
+// Middleware for parsing request body
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 // Import routes
 const userRoutes = require('./routes/users');
 
 // Use routes
 app.use('/api', userRoutes);
 
-// Middleware for parsing request body
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
