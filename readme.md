@@ -32,3 +32,9 @@ an idiotically titled family tree application
 ## Goals beyond MVP (stuff I might care about in future)
 
     * extendable data saved on each subject - whether that's text or photographs
+    * location tracking - follow the area of residence of ancestors throughout history
+
+## Creating migrations:
+npx sequelize-cli migration:generate --name remove-unique-from-forenames
+
+Thanks to GitHub Copilot AI Assistant for the help.

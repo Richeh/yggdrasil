@@ -12,7 +12,20 @@ router.get('/subjects/:id', async (req, res) => {
 });
 
 router.post('/subjects', async (req, res) => {
+/** try {
+        console.log('Request body:', req.body);
+        console.log('About to create subject...');
+        const subject = await Subject.create(req.body);
+        console.log('Subject created successfully:', subject);
+        res.json(subject);
+    } catch (error) {
+        console.error('Error creating subject:', error);
+        console.error('Error name:', error.name);
+        console.error('Error message:', error.message);
+        res.status(500).json({ error: error.message, details: error });
+    }**/
     res.json(await Subject.create(req.body));
+
 });
 
 router.put('/subjects/:id', async (req, res) => {

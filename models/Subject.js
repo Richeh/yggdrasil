@@ -9,7 +9,6 @@ Subject.init({
     forenames: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
             notEmpty: true
         }
@@ -17,31 +16,21 @@ Subject.init({
     surname: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: false,
         validate: {
             notEmpty: true
         }
     },
     birthplace: {
         type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-            notEmpty: true
-        }
+        allowNull: true
     },
     birthdate: {
         type: DataTypes.DATE,
-        allowNull: true,
-        validate: {
-            isDate: true
-        }
+        allowNull: true
     },
     deathdate: {
         type: DataTypes.DATE,
-        allowNull: true,
-        validate: {
-            isDate: true
-        }
+        allowNull: true
     }
 }, { 
     sequelize, 

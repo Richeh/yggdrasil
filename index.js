@@ -3,7 +3,7 @@ require('dotenv').config();
 const express=require('express');
 const bodyParser=require('body-parser');
 
-const { sequelize, User, syncDatabase } = require('./models');
+const { sequelize, User, Subject, syncDatabase } = require('./models');
 
 syncDatabase();
 
@@ -17,10 +17,11 @@ app.use(bodyParser.json());
 
 // Import routes
 const userRoutes = require('./routes/users');
+const subjectRoutes = require('./routes/subjects');
 
 // Use routes
 app.use('/api', userRoutes);
-
+app.use('/api', subjectRoutes);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
