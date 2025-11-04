@@ -1,10 +1,14 @@
+require('dotenv').config();
+
 const express=require('express');
 const bodyParser=require('body-parser');
-const { Sequelize, DataTypes } = require('sequelize');
+
+const { sequelize, User, syncDatabase } = require('./models');
+
+syncDatabase();
 
 const app=express();
-const port=3000;
-
+const port=process.env.PORT || 3000;
 
 // Import routes
 const userRoutes = require('./routes/users');

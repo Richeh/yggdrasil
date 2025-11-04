@@ -1,27 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { User } = require('../models');
 const { DataTypes, Model, Sequelize } = require('sequelize');
-
-//Setup database model
-
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './database.sqlite'
-});
-
-// Sync models with database
-
-sequelize.sync();
-
-// define user model
-
-class User extends Model {}
-User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-}, { sequelize, modelName: 'user'});
-
 
 router.get('/users/', async (req, res) => {
     res.json( await User.findAll());
